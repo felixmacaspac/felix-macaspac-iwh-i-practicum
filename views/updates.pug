@@ -1,0 +1,27 @@
+html
+  head
+    title= title
+    link(rel="stylesheet", href="/css/styles.css")
+  body
+    h1 Add New Pet
+    
+    form(action="/update-cobj" method="POST")
+      div.form-group
+        label(for="pet_name") Pet Name:
+        input(type="text" id="pet_name" name="pet_name" required)
+      
+      div.form-group
+        label(for="pet_size") Pet Size:
+        select(id="pet_size" name="pet_size" required)
+          option(value="") Select a size
+          option(value="Small") Small
+          option(value="Medium") Medium
+          option(value="Large") Large
+      
+      div.form-group
+        label(for="pet_color") Pet Color:
+        input(type="text" id="pet_color" name="pet_color" required)
+      
+      button(type="submit") Create Pet Record
+    
+    a(href="/" class="home-link") Return to the homepage

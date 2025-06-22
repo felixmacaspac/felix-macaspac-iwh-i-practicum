@@ -1,0 +1,23 @@
+html
+  head
+    title= title
+    link(rel="stylesheet", href="/css/styles.css")
+  body
+    h1 Pet Custom Objects
+    a(href="/update-cobj" class="add-link") Add to this table
+    
+    if data && data.length > 0
+      table
+        thead
+          tr
+            th Pet Name
+            th Pet Size
+            th Pet Color
+        tbody
+          each pet in data
+            tr
+              td= pet.pet_name || '-'
+              td= pet.pet_size || '-'
+              td= pet.pet_color || '-'
+    else
+      p No pets found. Add some using the link above.
