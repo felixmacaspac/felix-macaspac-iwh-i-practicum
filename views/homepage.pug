@@ -1,0 +1,29 @@
+doctype html
+html
+  head
+    title= title
+    meta(charset='utf-8')
+    meta(name='viewport', content='width=device-width, initial-scale=1')
+  body
+    h1= title
+    
+    a(href='/update-cobj') Add New Restaurant
+    
+    if data && data.length > 0
+      each restaurant in data
+        div
+          h3= restaurant.properties.resturant_name
+          p
+            strong Location: 
+            = restaurant.properties.restaurant_location
+          p
+            strong Age: 
+            = restaurant.properties.restaurant_age
+          p
+            strong ID: 
+            = restaurant.id
+          a(href=`/update-cobj?id=${restaurant.id}`) Edit Restaurant
+          hr
+    else
+      p No restaurants found. 
+        a(href='/update-cobj') Add your first restaurant!

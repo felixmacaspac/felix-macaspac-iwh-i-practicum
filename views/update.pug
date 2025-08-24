@@ -1,0 +1,50 @@
+doctype html
+html
+  head
+    title= title
+    meta(charset='utf-8')
+    meta(name='viewport', content='width=device-width, initial-scale=1')
+  body
+    h1= title
+    
+    form(method='POST', action=method_type === 'update' ? `/update-cobj?id=${data.id}` : '/update-cobj')
+      div
+        label(for='resturant_name') Restaurant Name *
+        input(
+          type='text'
+          id='resturant_name'
+          name='resturant_name'
+          value=data.properties.resturant_name
+          required
+          placeholder='Enter restaurant name'
+        )
+      
+      div
+        label(for='restaurant_location') Restaurant Location
+        input(
+          type='text'
+          id='restaurant_location'
+          name='restaurant_location'
+          value=data.properties.restaurant_location
+          placeholder='Enter restaurant location'
+        )
+      
+      div
+        label(for='restaurant_age') Restaurant Age (years)
+        input(
+          type='number'
+          id='restaurant_age'
+          name='restaurant_age'
+          value=data.properties.restaurant_age
+          placeholder='Enter restaurant age in years'
+          min='0'
+        )
+      
+      div
+        button(type='submit')= method_type === 'update' ? 'Update Restaurant' : 'Add Restaurant'
+        a(href='/') Cancel
+    
+    if method_type === 'update'
+      p
+        strong Current Record ID: 
+        = data.id
